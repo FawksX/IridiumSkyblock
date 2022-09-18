@@ -1014,8 +1014,12 @@ public class IslandManager {
      * @return The main skyblock {@link World}, might be null if some third-party plugin deleted it
      * @since 3.0.0
      */
+    private static World ISLAND_WORLD = null;
     public World getWorld() {
-        return Bukkit.getWorld(IridiumSkyblock.getInstance().getConfiguration().worldName);
+        if(ISLAND_WORLD == null) {
+            ISLAND_WORLD = Bukkit.getWorld(IridiumSkyblock.getInstance().getConfiguration().worldName);
+        }
+        return ISLAND_WORLD;
     }
 
     /**
@@ -1024,8 +1028,12 @@ public class IslandManager {
      * @return The nether skyblock {@link World}, might be null if some third-party plugin deleted it
      * @since 3.0.0
      */
+    private static World NETHER_WORLD = null;
     public World getNetherWorld() {
-        return Bukkit.getWorld(IridiumSkyblock.getInstance().getConfiguration().worldName + "_nether");
+        if(NETHER_WORLD == null) {
+            NETHER_WORLD = Bukkit.getWorld(IridiumSkyblock.getInstance().getConfiguration().worldName + "_nether");
+        }
+        return NETHER_WORLD;
     }
 
     /**
@@ -1034,8 +1042,12 @@ public class IslandManager {
      * @return The end skyblock {@link World}, might be null if some third-party plugin deleted it
      * @since 3.0.0
      */
+    private static World END_WORLD = null;
     public World getEndWorld() {
-        return Bukkit.getWorld(IridiumSkyblock.getInstance().getConfiguration().worldName + "_the_end");
+        if(END_WORLD == null) {
+            END_WORLD = Bukkit.getWorld(IridiumSkyblock.getInstance().getConfiguration().worldName + "_the_end");
+        }
+        return END_WORLD;
     }
 
     public boolean isIslandOverWorld(World world) {
